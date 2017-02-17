@@ -13,3 +13,7 @@ A commit is a finalized change that has been made to a branch, and a good commit
 
 * What is a merge conflict?
 A merge conflict occurs when the two branches that you are looking to merge each have had changes that were made specifically to those branches. 
+
+
+
+Can I have my squirrel please? :D

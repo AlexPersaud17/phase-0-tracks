@@ -9,8 +9,15 @@ section#contact-info{
 	border-radius: 25px;
 	margin-top: 5px;
 	margin-bottom: 5px;
-}
 
+}
+.job:hover{
+	background-color: orange;
+}
 .accomplishments{
 	font-size: 0.8em;
+}
+
+#work-experience h2{
+	color: orange;
 }

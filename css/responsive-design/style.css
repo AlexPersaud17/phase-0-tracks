@@ -1,3 +1,7 @@
+body {
+  width: 80%;
+}
+
 blockquote {
   border-left: 5px solid blue;
   padding: 15px;
@@ -10,13 +14,12 @@ cite {
 }
 
 #external-links {
-  list-style-type: none;
-  padding-left: 0px;
   position: fixed;
-  width: 200px;
   right: 0;
-  margin-right: 50px;
+  width: 20%;
+  list-style-type: none;
   border: 2px solid black;
+
 }
 
 /* you're welcome to edit the
@@ -34,4 +37,15 @@ figure {
 figcaption {
   font-style: italic;
   text-align: right;
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+    font-size: 10px;
+  }
+
+  h1 {
+    font-size: 14px;
+  }
 }

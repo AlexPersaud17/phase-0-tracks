@@ -9,9 +9,14 @@ cite {
   margin-top: 10px;
 }
 
-#external-links ul {
+#external-links {
   list-style-type: none;
   padding-left: 0px;
+  position: fixed;
+  width: 200px;
+  right: 0;
+  margin-right: 50px;
+  border: 2px solid black;
 }
 
 /* you're welcome to edit the

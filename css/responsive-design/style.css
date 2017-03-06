@@ -14,12 +14,10 @@ cite {
 }
 
 #external-links {
-  list-style-type: none;
-  padding-left: 0px;
   position: fixed;
-  width: 200px;
   right: 0;
-  margin-right: 50px;
+  width: 20%;
+  list-style-type: none;
   border: 2px solid black;
 
 }
@@ -41,7 +39,6 @@ figcaption {
   text-align: right;
 }
 
-
 @media screen and (max-width: 500px) {
   body {
     background-color: hotpink;
@@ -50,6 +47,5 @@ figcaption {
 
   h1 {
     font-size: 14px;
-
   }
 }

@@ -1,0 +1,18 @@
+How To Use An Elevator
+-Determine what floor to go to
+	-If floor is above current floor, press up
+	-Otherwise, press down
+-Step on elevator
+-Press corresponding floor button
+-Step off elevator
+
+Morning Ritual
+-Turn off alarm
+-Head to the bathroom
+	-Brush teeth
+	-Take a shower
+-Go back to bedroom
+	-Get dressed
+-Go downstairs
+	-Eat breakfast
+	-Head to my car

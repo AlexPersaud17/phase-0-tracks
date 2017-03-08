@@ -16,8 +16,8 @@ else adoption == "n"
 end
 puts "What is the estimated age of your hamster?"
 age=gets.chomp
-if age == ""
-	age="nil"
+if age == nil
+	age="unknown"
 end
 
 puts "Your most recently registered hamster is a #{color} hamster named #{name}. #{name} is #{age} years old and has a noise rating of #{volume}. #{name} is #{adoption} to be adopted at this time."

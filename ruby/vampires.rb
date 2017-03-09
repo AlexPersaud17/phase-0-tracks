@@ -1,7 +1,9 @@
 
-def age_test(age)
-	if age<70
+def age_test(age, year)
+	if Time.new.year - year == age || Time.new.year - (year + 1) == age
 		return true
+	elsif age > 100
+		return false
 	else
 		return false
 	end
@@ -27,9 +29,8 @@ def health_test(choice)
 	end
 end
 
-=begin
 def name_test(name)
-	if name == "drake cula" || "tu fang" || "ivan tsukyablud" || "edward cullen"
+	if name == "drake cula" || name == "tu fang" || name == "ivan tsukyablud" || name == "edward cullen"
 		return false
 	else
 		return true
@@ -37,31 +38,34 @@ def name_test(name)
 end
 
 vampire = false
-while vampire==false
-=end
+while !vampire
 	puts "What is your name?"
-	ww_name=gets.chomp
-	#ww_name=name_test(gets.chomp.downcase)
+	ww_name=name_test(gets.chomp.downcase)
 	
-	#if !ww_name
-	#	vampire=true
-	#end
+	if !ww_name
+		vampire = true
+		break
+	end
 
 	puts "How old are you? What year were you born?"
-	ww_age=age_test(gets.chomp.to_i)
+	ww_age=age_test(gets.chomp.to_i, gets.chomp.to_i)
 
 	puts "Our cafeteria serves garlic bread. Should we order some for you? (yes/no)"
 	ww_garlic=garlic_test(gets.chomp.downcase)
 
 	puts "Would you like to enroll in the company's health insurance (yes/no)?"
 	ww_health=health_test(gets.chomp.downcase)
-#end
 
-#puts "No further questions, YOU VAMPIRE!"
+	break 
+end
+
+
 
 
 
 case
+when vampire
+	puts "No further questions, you're definitely a vampire."
 when !ww_age && !ww_garlic && !ww_health
 	puts "Almost certainly a vampire."
 when !ww_age && (!ww_garlic || !ww_health)

@@ -41,7 +41,7 @@ vampire = false
 while !vampire
 	puts "What is your name?"
 	ww_name=name_test(gets.chomp.downcase)
-	
+
 	if !ww_name
 		vampire = true
 		break

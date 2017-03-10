@@ -37,6 +37,7 @@ def name_test(name)
 	end
 end
 
+
 def allergy_test(allergy)
 	repeat = true
 	while repeat == true
@@ -49,7 +50,7 @@ def allergy_test(allergy)
 		else
 			allergy=gets.chomp
 		end
-	end
+  end
 end
 
 puts "How many employees are going to be processed today?"

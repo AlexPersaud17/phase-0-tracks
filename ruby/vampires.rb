@@ -83,7 +83,7 @@ until empl_num == 0
 	end
 
 	case
-	when !vampire
+	when vampire
 		puts "No further questions, you're definitely a vampire."
 	when !ww_age && !ww_garlic && !ww_health
 		puts "Almost certainly a vampire."

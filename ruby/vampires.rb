@@ -1,19 +1,19 @@
 
 def age_test(age, year)
 	if Time.new.year - year == age || Time.new.year - (year + 1) == age
-		return false
+		return true
 	elsif age > 100
-		return true
+		return false
 	else
-		return true
+		return false
 	end
 end
 
 def garlic_test(choice)
 	if choice == "yes"
-		return false
-	elsif choice == "no"
 		return true
+	elsif choice == "no"
+		return false
 	else
 		return 0
 	end
@@ -21,9 +21,9 @@ end
 
 def health_test(choice)
 	if choice == "yes"
-		return false
-	elsif choice == "no"
 		return true
+	elsif choice == "no"
+		return false
 	else
 		return 0
 	end
@@ -31,9 +31,9 @@ end
 
 def name_test(name)
 	if name == "drake cula" || name == "tu fang" || name == "ivan tsukyablud" || name == "edward cullen"
-		return true
-	else
 		return false
+	else
+		return true
 	end
 end
 
@@ -42,10 +42,10 @@ def allergy_test(allergy)
 	repeat = true
 	while repeat == true
 		if allergy == "sunshine"
-			return true
+			return false
 			repeat = false
 		elsif allergy == "done"
-			return false
+			return true
 			repeat = false
 		else
 			allergy=gets.chomp
@@ -62,7 +62,7 @@ until empl_num == 0
 		puts "What is your name?"
 		ww_name=name_test(gets.chomp.downcase)
 		
-		if ww_name
+		if !ww_name
 			vampire = true
 			break
 		end
@@ -85,11 +85,11 @@ until empl_num == 0
 	case
 	when vampire
 		puts "No further questions, you're definitely a vampire."
-	when ww_age && ww_garlic && ww_health
+	when !ww_age && !ww_garlic && !ww_health
 		puts "Almost certainly a vampire."
-	when (ww_age && (ww_garlic || ww_health)) || ww_allergy
+	when (!ww_age && (!ww_garlic || !ww_health)) || !ww_allergy
 		puts "Probably a vampire."
-	when !ww_age && (!ww_garlic || !ww_health)
+	when ww_age && (ww_garlic || ww_health)
 		puts "Probably not a vampire."
 	else
 		puts "Results inconclusive."

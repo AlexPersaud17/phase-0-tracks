@@ -9,17 +9,17 @@ def encrypt(password)
 	index=0
 	while index < password.length
 		if password[index]==" "
-			print " "
+			p " "
 			index+=1
 		elsif password[index]=="z"
-			print "a"
+			p "a"
 			index+=1
 		else
 			print password[index].next
 			index+=1
 		end
 	end
-	puts " "
+	p " "
 end
 
 #puts"What's your password?"
@@ -41,13 +41,13 @@ def decrypt(encrypted_password)
 		while d_index < decrypter.length
 			if encrypted_password[e_index]==decrypter[d_index]
 				if encrypted_password[e_index]==" "
-					print " "
+					p " "
 					e_index+=1
 				elsif encrypted_password[e_index]=="a"
-					print "z"
+					p "z"
 					e_index+=1
 				else
-					print decrypter[d_index-1]
+					p decrypter[d_index-1]
 				end
 			end
 			d_index+=1

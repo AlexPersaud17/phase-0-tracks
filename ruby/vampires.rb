@@ -58,6 +58,14 @@ empl_num=gets.chomp.to_i
 
 until empl_num == 0
 	vampire = false
+
+
+
+	i_should_have_read_all_the_releases_before_i_started=true
+	#Change to false to run program
+
+
+
 	while !vampire
 		puts "What is your name?"
 		ww_name=name_test(gets.chomp.downcase)
@@ -83,6 +91,9 @@ until empl_num == 0
 	end
 
 	case
+	when i_should_have_read_all_the_releases_before_i_started
+		puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
+		empl_num=1
 	when vampire
 		puts "No further questions, you're definitely a vampire."
 	when !ww_age && !ww_garlic && !ww_health
@@ -102,7 +113,7 @@ until empl_num == 0
 		puts
 	else
 		puts
-		puts "Thank you all for coming, (some of you) will hear back from us within 24 hours."
+		puts "Thank you all for coming!"
 	end
 
 end

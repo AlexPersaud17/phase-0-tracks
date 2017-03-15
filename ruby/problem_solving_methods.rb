@@ -41,7 +41,6 @@ test=218922995834555169026
 p fib.fetch(-1)==test
 
 # Release 2
-
 =begin
 
 Take's first value of array

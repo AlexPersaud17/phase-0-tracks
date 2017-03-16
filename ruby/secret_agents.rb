@@ -7,19 +7,24 @@ ENCRYPT
 =end
 def encrypt(password)
 	index=0
+	encrypted_password=[]
 	while index < password.length
 		if password[index]==" "
-			p " "
+			puts " "
+			encrypted_password << " "
 			index+=1
 		elsif password[index]=="z"
-			p "a"
+			puts "a"
+			encrypted_password << "a"
 			index+=1
 		else
 			print password[index].next
+			encrypted_password << password[index].next
 			index+=1
 		end
 	end
-	p " "
+	puts " "
+	encrypted_password
 end
 
 #puts"What's your password?"
@@ -41,13 +46,13 @@ def decrypt(encrypted_password)
 		while d_index < decrypter.length
 			if encrypted_password[e_index]==decrypter[d_index]
 				if encrypted_password[e_index]==" "
-					p " "
+					print " "
 					e_index+=1
 				elsif encrypted_password[e_index]=="a"
-					p "z"
+					print "z"
 					e_index+=1
 				else
-					p decrypter[d_index-1]
+					print decrypter[d_index-1]
 				end
 			end
 			d_index+=1
@@ -68,7 +73,7 @@ decrypt(encrypt("swordfish"))
 -performs necessary operation
 -print results
 =end
-
+puts ""
 puts "Would you like to encrypt or decrypt?"
 user_input=gets.chomp.downcase
 if user_input == "encrypt"

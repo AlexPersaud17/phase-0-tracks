@@ -1,4 +1,11 @@
-agents_names = [['Alex', 'Persaud'], ['Felicia', 'Torres'], ['James', 'Bond']]
+# SECRET NAME GENERATOr STEPS
+# Split up first and last name
+# Swap first name position with last name
+# Run both names through methods that:
+# 	Change vowels to following vowel
+# 	Change consonants to following consonant
+# Send both names back to a list
+# Display name to user
 
 def name_switch(first_name, last_name)
 	first_name, last_name = last_name, first_name
@@ -20,6 +27,7 @@ def next_consonant(first_name, last_name)
 	consonant_swap
 end
 
+agents_names = [['Alex', 'Persaud'], ['Felicia', 'Torres'], ['James', 'Bond']]
 
 agents_names.each do |name|
 	swapped = name_switch(name[0], name[1])
@@ -28,11 +36,12 @@ agents_names.each do |name|
 	puts "#{name[0]} #{name[1]} becomes #{consonant_replaced[0].capitalize} #{consonant_replaced[1].capitalize}"
 end
 
+# USER INTERFACE
 
 secret_identities = []
 all_codenames = []
 loop do
-	puts "What is your first and last name, agent?"
+	puts "What is your first and last name, agent? Enter 'quit' when finished."
 	input = gets.chomp
 	real_name = []
 	aliases = []
@@ -58,8 +67,9 @@ loop do
 	secret_identities << real_name
 	all_codenames << aliases
 end
-count = 0
-until count == secret_identities.length
-	puts "#{secret_identities[count][0]} #{secret_identities[count][1]} is secretly #{all_codenames[count][0]} #{all_codenames[count][1]}."
-	count += 1
+
+agent_num = 0
+until agent_num == secret_identities.length
+	puts "#{all_codenames[agent_num][0]} #{all_codenames[agent_num][1]} is secretly #{secret_identities[agent_num][0]} #{secret_identities[agent_num][1]}."
+	agent_num += 1
 end

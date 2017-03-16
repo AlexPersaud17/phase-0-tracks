@@ -41,7 +41,7 @@ end
 secret_identities = []
 all_codenames = []
 loop do
-	puts "What is your first and last name, agent?"
+	puts "What is your first and last name, agent? Enter 'quit' when finished."
 	input = gets.chomp
 	real_name = []
 	aliases = []
@@ -69,7 +69,7 @@ loop do
 end
 
 agent_num = 0
-until count == secret_identities.length
-	puts "#{secret_identities[agent_num][0]} #{secret_identities[agent_num][1]} is secretly #{all_codenames[agent_num][0]} #{all_codenames[agent_num][1]}."
+until agent_num == secret_identities.length
+	puts "#{all_codenames[agent_num][0]} #{all_codenames[agent_num][1]} is secretly #{secret_identities[agent_num][0]} #{secret_identities[agent_num][1]}."
 	agent_num += 1
 end

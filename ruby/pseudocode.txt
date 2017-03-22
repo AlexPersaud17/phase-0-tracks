@@ -1,0 +1,5 @@
+1. Obtain secret word
+2. Number of guesses = number of characters in word
+3. Same guess doesn't count
+4. If correct letter is called, fill in all instances of that letter
+5. Congratulations/you lose

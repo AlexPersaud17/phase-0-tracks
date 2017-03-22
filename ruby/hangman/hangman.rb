@@ -1,9 +1,10 @@
 class Hangman
-	attr_reader :letters, :correct_guess
+	attr_reader :letters, :correct_guess, :non_space_chars
 
 
 	def initialize(secret_word)
 		@letters = secret_word.downcase.split('')
+		@non_space_chars = 0
 
 		@placeholder = "_ "
 		@spaces = []
@@ -15,7 +16,14 @@ class Hangman
 			end
 		end
 
-		puts "You only have #{@letters.length} guesses, so choose wisely!"
+    @spaces.each do |letter|
+      if letter != "   "
+        @non_space_chars += 1
+      end
+    end
+    
+    
+		puts "You only have #{@non_space_chars} guesses, so choose wisely!"
 
 		@spaces.each do |space|
 			print space
@@ -67,7 +75,7 @@ random_words = ["centaur", "shocking", "power", "flirt", "falling", "facade", "c
 
 new_game = Hangman.new(secret_word)
 puts ""
-guess_count = new_game.letters.length
+guess_count = new_game.non_space_chars
 winner = true
 
 loop do

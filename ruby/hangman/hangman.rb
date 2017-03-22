@@ -55,7 +55,8 @@ end
 
 
 # PICK YOUR SUPER SECRET WORD OR PHRASE!
-secret_word = "I LOVE CODING"
+puts "Please enter your super secret word or phrase:"
+secret_word = gets.chomp
 
 # OR UNCOMMENT LINE BELOW TO HAVE A SECRET WORD CHOSEN FROM THE LIST !
 random_words = ["centaur", "shocking", "power", "flirt", "falling", "facade", "clover", "pink", "warmth", "angriest", "weapon", "orphanage", "cruel", "careless", "event", "melody", "coincidence", "amplitude", "correlation", "application", "cuddle", "blasting", "subsonic"]
@@ -71,7 +72,7 @@ winner = true
 
 loop do
 	puts ""
-	
+
 	if guess_count != 1
 		puts "#{guess_count} guesses left!"
 	else

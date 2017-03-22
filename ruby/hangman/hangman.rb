@@ -1,6 +1,7 @@
 class Hangman
 	attr_reader :letters, :correct_guess
 
+
 	def initialize(secret_word)
 		@letters = secret_word.downcase.split('')
 
@@ -46,7 +47,6 @@ class Hangman
 	end
 
 
-
 	def check_win
 		@spaces.include?(@placeholder)
 	end
@@ -67,11 +67,17 @@ random_words = ["centaur", "shocking", "power", "flirt", "falling", "facade", "c
 new_game = Hangman.new(secret_word)
 puts ""
 guess_count = new_game.letters.length
-
 winner = true
+
 loop do
 	puts ""
-	puts "#{guess_count} guesses left!"
+	
+	if guess_count != 1
+		puts "#{guess_count} guesses left!"
+	else
+		puts "#{guess_count} guess left!"
+	end
+
 	puts "Guess please."
 	winner = true
 	new_game.guess(gets.chomp)
@@ -87,8 +93,8 @@ loop do
 		break
 	end
 end
-puts ""
 
+puts ""
 if winner
 	puts "You got the secret word '#{secret_word}'! Well done! Do with it what you must."
 else

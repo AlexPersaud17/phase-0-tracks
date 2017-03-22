@@ -99,5 +99,5 @@ puts ""
 if winner
 	puts "You got the secret word '#{secret_word}'! Well done! Do with it what you must."
 else
-	puts "Wow you had #{secret_word.length} tries and you STILL didn't get it? The word was '#{secret_word}' by the way..."
+	puts "Wow you had #{secret_word.length} tries and you STILL didn't get it? The answer was '#{secret_word}' by the way..."
 end

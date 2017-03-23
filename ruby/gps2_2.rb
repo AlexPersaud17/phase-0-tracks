@@ -68,3 +68,29 @@ add_grocery_item(grocery_list, "ice cream", 4)
 remove_grocery_item(grocery_list, "lemonade")
 update_grocery_quantity(grocery_list, "ice cream", 1)
 print print_list(grocery_list)
+
+
+# REFLECTION
+=begin
+
+
+What did you learn about pseudocode from working on this challenge?
+-Being specific really makes the actual coding much easier.
+
+What are the tradeoffs of using arrays and hashes for this challenge?
+-Hashes can store more information, in this case, having a quantity as they value for the key called the grovery item.
+
+What does a method return?
+-The last line of the method.
+
+What kind of things can you pass into methods as arguments?
+-You can pass full data structures as arguments in methods ie arrays and hashes.
+
+How can you pass information between methods?
+-Return the value of the method and store that return value use in another method.
+
+What concepts were solidified in this challenge, and what concepts are still confusing?
+-Transferring data between methods are now simple to me, previously I had trouble with it.
+
+
+=end

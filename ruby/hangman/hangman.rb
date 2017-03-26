@@ -1,5 +1,5 @@
 class Hangman
-
+	attr_reader :spaces, :winner
 	def initialize(secret_word)
 		@secret_word = secret_word
 		@letters = secret_word.downcase.split('')
@@ -77,9 +77,12 @@ class Hangman
 		  guessing_loop
 		elsif @winner
 		  puts "You got the secret word '#{@secret_word}'! Well done! Do with it what you must."
+		  @winner
 		else
 		  puts "Wow you had #{@secret_word.length} tries and you STILL didn't get it? The answer was '#{@secret_word}' by the way..."
+		  @winner
 		end
+
 	end
 
 
@@ -111,6 +114,11 @@ class Hangman
 end
 
 
+
+
+# COMMENTED OUT FOR TESTING
+=begin
+
 # PICK YOUR SUPER SECRET WORD OR PHRASE!
 puts "Please enter your super secret word or phrase:"
 secret_word = gets.chomp
@@ -121,3 +129,4 @@ random_words = ["centaur", "shocking", "power", "flirt", "falling", "facade", "c
 
 
 new_game = Hangman.new(secret_word)
+=end

@@ -14,7 +14,14 @@ describe Hangman do
 	end
 
 	it "checks if there are any placeholders left to to declare win" do
-		expect(new_game.check_win).to eq true
+		new_game.guess("u")
+		new_game.guess("n")
+		new_game.guess("i")
+		new_game.guess("c")
+		new_game.guess("o")
+		new_game.guess("r")
+		new_game.guess("s")
+		expect(new_game.check_win).to eq false
 	end
 
 end

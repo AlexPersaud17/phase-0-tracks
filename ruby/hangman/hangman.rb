@@ -98,7 +98,7 @@ class Hangman
 
 		#Letter that was already picked doesn't count towards @guess_count
 		if @letters_chosen.include?(user_guess)
-		  puts "You chose this already, go again."
+		  puts "You chose '#{user_guess}' already, go again."
 		  @spaces.each do |letter|
 			  print letter
 		  end

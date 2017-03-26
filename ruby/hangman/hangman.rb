@@ -5,6 +5,7 @@ class Hangman
 		@letters = secret_word.downcase.split('')
 		@non_space_chars = 0
 		@placeholder = "_ "
+		@empty_space = "   "
 		@spaces = []
 		@winner = true
 		@letters_chosen = []
@@ -13,15 +14,18 @@ class Hangman
 			if letter != " "
 				@spaces << @placeholder
 			else
-				@spaces << "   "
+				@spaces << @empty_space
 			end
 		end
-		
+
+		#Spaces do not count as empty spaces
     	@spaces.each do |letter|
-      		if letter != "   "
+      		if letter != @empty_space
         	@non_space_chars += 1
       		end
     	end
+
+    	#Number of guesses is related to how long the word is
     	@guess_count = @non_space_chars
 
 		puts "You only have #{@non_space_chars} guesses, so choose wisely!"
@@ -34,10 +38,14 @@ class Hangman
 
 
 	def guess(choice)
-	  @letters_chosen << choice
+		#Stores letter that was chosen
+	  	@letters_chosen << choice
+
+	  	#Stores all instances of same letter
 		@letter_location = @letters.each_index.select { |letter| @letters[letter] == choice }
-		@letters.each do |letter|
-		  
+
+		#Replaces empty space woth correct letter
+		@letters.each do |letter|  
 			if letter == choice
 				@letter_location.each do |index|
 					@spaces[index] = letter
@@ -63,6 +71,8 @@ class Hangman
 
 	def check_win
 	  puts ""
+
+	  	#Checks for empty spaces
 		if @spaces.include?(@placeholder) && @winner
 		  guessing_loop
 		elsif @winner
@@ -85,6 +95,8 @@ class Hangman
 		puts "Guess please."
 		@winner = true
 		user_guess = gets.chomp
+
+		#Letter that was already picked doesn't count towards @guess_count
 		if @letters_chosen.include?(user_guess)
 		  puts "You chose this already, go again."
 		  @spaces.each do |letter|

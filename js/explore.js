@@ -7,7 +7,11 @@ function reverse(phrase){
 	for(var letter = (phrase.length - 1); letter >=0; letter--){
 		reversedPhrase += phrase[letter];
 	}
-	console.log(reversedPhrase)
+	return reversedPhrase;
+}
+var newPhrase = reverse("Hello, my name is Alex.");
+var alex = "cool";
+if(alex == "cool"){
+	console.log(newPhrase);
 }
 
-reverse("Hello, my name is Alex.");

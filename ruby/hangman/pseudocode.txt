@@ -1,5 +1,8 @@
 1. Obtain secret word
 2. Number of guesses = number of characters in word
 3. Same guess doesn't count
-4. If correct letter is called, fill in all instances of that letter
-5. Congratulations/you lose
+4. Correct guess replaces an underscore character
+5. If correct letter is called, fill in all instances of that letter
+6. Determine winner or loser
+	-Display "congratulations" when no more underscore characters remain
+	-Display "loser" when number of guesses has been used

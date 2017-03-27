@@ -8,7 +8,7 @@ describe Hangman do
 		expect(new_game.spaces).to eq ["u", "_ ", "_ ", "_ ", "_ ", "_ ", "_ ", "_ ", ]
 	end
 
-	it "replaces underscore with correct letter if chosen" do
+	it "replaces underscore with all instances of correct letter if chosen" do
 		new_game.guess("n")
 		expect(new_game.spaces).to eq ["_ ", "n", "_ ", "_ ", "_ ", "_ ", "n", "_ ", ]
 	end
@@ -21,7 +21,7 @@ describe Hangman do
 		new_game.guess("o")
 		new_game.guess("r")
 		new_game.guess("s")
-		expect(new_game.check_win).to eq false
+		expect(new_game.check_win).to eq true
 	end
 
 end

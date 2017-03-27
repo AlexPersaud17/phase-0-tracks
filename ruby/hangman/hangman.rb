@@ -1,25 +1,27 @@
 class Hangman
-	attr_reader :spaces, :winner
+	attr_reader :hidden_word, :winner
+	attr_accessor :user_guess
 	def initialize(secret_word)
 		@secret_word = secret_word
-		@letters = secret_word.downcase.split('')
+		@secret_letters = secret_word.downcase.split('')
 		@non_space_chars = 0
 		@placeholder = "_ "
 		@empty_space = "   "
-		@spaces = []
+		@hidden_word = []
 		@winner = true
 		@letters_chosen = []
 
-		@letters.each do |letter|
+		#Replaces letters of secret word with '_ '
+		@secret_letters.each do |letter|
 			if letter != " "
-				@spaces << @placeholder
+				@hidden_word << @placeholder
 			else
-				@spaces << @empty_space
+				@hidden_word << @empty_space
 			end
 		end
 
-		#Spaces do not count as empty spaces
-    	@spaces.each do |letter|
+		#Spaces in the secret phrase do not count towards hidden characters
+    	@hidden_word.each do |letter|
       		if letter != @empty_space
         	@non_space_chars += 1
       		end
@@ -29,11 +31,10 @@ class Hangman
     	@guess_count = @non_space_chars
 
 		puts "You only have #{@non_space_chars} guesses, so choose wisely!"
-		@spaces.each do |space|
+		@hidden_word.each do |space|
 			print space
 		end
 		puts ""
-		guessing_loop
 	end
 
 
@@ -42,13 +43,13 @@ class Hangman
 	  	@letters_chosen << choice
 
 	  	#Stores all instances of same letter
-		@letter_location = @letters.each_index.select { |letter| @letters[letter] == choice }
+		@letter_location = @secret_letters.each_index.select { |letter| @secret_letters[letter] == choice }
 
 		#Replaces empty space woth correct letter
-		@letters.each do |letter|  
+		@secret_letters.each do |letter|  
 			if letter == choice
 				@letter_location.each do |index|
-					@spaces[index] = letter
+					@hidden_word[index] = letter
 				end
 				@correct_guess = true
 				break
@@ -56,24 +57,28 @@ class Hangman
 				@correct_guess = false
 			end
 		end
-		@spaces.each do |letter|
+
+		@hidden_word.each do |letter|
 			print letter
 		end
+
+		#Guess count goes down for the first time an incorrect letter is called
 		if !@correct_guess
 				@guess_count -= 1
 		end
+
 		if @guess_count == 0
 				@winner = false
 		end
-		@spaces
+		@hidden_word
 	end
 
 
 	def check_win
 	  puts ""
 
-	  	#Checks for empty spaces
-		if @spaces.include?(@placeholder) && @winner
+	  	#Checks for empty spaces, runs guessing loop again, declares winner/loser
+		if @hidden_word.include?(@placeholder) && @winner
 		  guessing_loop
 		elsif @winner
 		  puts "You got the secret word '#{@secret_word}'! Well done! Do with it what you must."
@@ -97,27 +102,22 @@ class Hangman
 
 		puts "Guess please."
 		@winner = true
-		user_guess = gets.chomp
+		@user_guess = gets.chomp
 
 		#Letter that was already picked doesn't count towards @guess_count
-		if @letters_chosen.include?(user_guess)
-		  puts "You chose '#{user_guess}' already, go again."
-		  @spaces.each do |letter|
+		if @letters_chosen.include?(@user_guess)
+		  puts "You chose '#{@user_guess}' already, go again."
+		  @hidden_word.each do |letter|
 			  print letter
 		  end
 		else
-		  guess(user_guess)
+		  guess(@user_guess)
 		end
 		check_win
 	end
 
 end
 
-
-
-
-# COMMENTED OUT FOR TESTING
-=begin
 
 # PICK YOUR SUPER SECRET WORD OR PHRASE!
 puts "Please enter your super secret word or phrase:"
@@ -129,4 +129,4 @@ random_words = ["centaur", "shocking", "power", "flirt", "falling", "facade", "c
 
 
 new_game = Hangman.new(secret_word)
-=end
+new_game.guessing_loop

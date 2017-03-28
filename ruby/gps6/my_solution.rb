@@ -16,7 +16,7 @@ class VirusPredictor
     @population_density = population_density
   end
 
-  def virus_effects
+  def virus_effects  
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
   end

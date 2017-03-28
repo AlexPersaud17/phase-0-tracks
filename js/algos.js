@@ -6,10 +6,6 @@
 // Longest word should be stored in variable
 // Display that variable
 
-var phrases1 = ["long phrase","longest phrase","longer phrase", "phrase"];
-var phrases2 = ["super", "cali", "fragilistic", "expi", "ali", "docious"];
-var phrases3 = ["anti", "disestablishment", "arianism"]
-
 function longPhraseChecker (phraseArray){
 	var longestPhrase;
 	var phraseLength = 0;
@@ -21,11 +17,6 @@ function longPhraseChecker (phraseArray){
 	}
 	return longestPhrase
 }
-
-// console.log(longPhraseChecker(phrases1));
-// console.log(longPhraseChecker(phrases2));
-// console.log(longPhraseChecker(phrases3));
-
 
 // Release 1
 // Create a list of the keys in the objects
@@ -43,9 +34,12 @@ function matching(object1, object2){
 	}
 }
 
-// keyValue1 = {name: "Steven", age: 54}
-// keyValue2 = {name: "Tamir", age: 54}
-// console.log(matching(keyValue1, keyValue2));
+// Release 2
+// Loop for a predetermined amount of times
+// Choose a random letter from a list of all letters
+// Add that to a string, and repeat for a random number of times, from 1-10
+// Display the random word and place it in a list
+// Run above function to choose longest word from that list
 
 function randomWordCreator(wordCount){
 	randomWords = [];
@@ -64,7 +58,23 @@ function randomWordCreator(wordCount){
 	return randomWords;
 
 }
+
+
+// DRIVER CODE
+// Release 0
+var phrases1 = ["long phrase","longest phrase","longer phrase", "phrase"];
+var phrases2 = ["super", "cali", "fragilistic", "expi", "ali", "docious"];
+var phrases3 = ["anti", "disestablishment", "arianism"]
+console.log(longPhraseChecker(phrases1));
+console.log(longPhraseChecker(phrases2));
+console.log(longPhraseChecker(phrases3));
+
+// Release 1
+keyValue1 = {name: "Steven", age: 54}
+keyValue2 = {name: "Tamir", age: 54}
+console.log(matching(keyValue1, keyValue2));
+
+// Release 2
 var howManyWords = 10
 console.log(randomWordCreator(howManyWords));
 console.log("\nThe longest word in this array is '" + longPhraseChecker(randomWords) + "'.");
-

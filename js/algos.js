@@ -59,8 +59,8 @@ function randomWordCreator(wordCount){
 
 }
 
-
 // DRIVER CODE
+
 // Release 0
 var phrases1 = ["long phrase","longest phrase","longer phrase", "phrase"];
 var phrases2 = ["super", "cali", "fragilistic", "expi", "ali", "docious"];

@@ -1,7 +1,7 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge [by myself, with: Mendel].
+# We spent [1] hour on this challenge.
 
 # EXPLANATION OF require_relative
 # Locate the file that needs to be linked ie. data for this class
@@ -91,3 +91,18 @@ end
 
 #=======================================================================
 # Reflection Section
+
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+#   The outer hash uses strings as key names while the inner hash uses symbols.
+
+# What does require_relative do? How is it different from require?
+#   It locates the additional file needed using the relative location of the current file.
+
+# What are some ways to iterate through a hash?
+#   hash.each do |key, value|
+
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+#   Since they were instance variables, they were accessible throughout the class, and therefore didn't need to have any arguments pass through them.
+
+# What concept did you most solidify in this challenge?
+#   After briefly touching on case statements previously, I became more comfortable using them.

@@ -1,0 +1,168 @@
+SOLO CHALLENGE: Database Used In The Movie "Gone In 60 Seconds"
+
+Release 1
+$ sqlite3 gonein60secs.db
+SQLite version 3.8.7.2 2014-11-18 20:57:56
+Enter ".help" for usage hints.
+sqlite> create table car_models(
+   ...> id integer primary key,
+   ...> year integer,
+   ...> model varchar(255),
+   ...> name varchar(255),
+   ...> boosted boolean,
+   ...> make_id integer,
+   ...> foreign key(make_id) references car_make(id)
+   ...> );
+
+sqlite> create table car_makes(
+   ...> id integer primary key,
+   ...> make varchar(255)
+   ...> );
+
+sqlite> insert into car_makes(make) values ('Aston Martin');
+sqlite> insert into car_makes(make) values ('Cadillac');
+sqlite> insert into car_makes(make) values ('Chevrolet');
+sqlite> insert into car_makes(make) values ('Ferrari');
+sqlite> insert into car_makes(make) values ('Mercedes');
+sqlite> insert into car_makes(make) values ('Porsche');
+sqlite> insert into car_makes(make) values ('Toyota');
+
+sqlite> select * from car_makes;
+1|Aston Martin
+2|Cadillac
+3|Chevrolet
+4|Ferrari
+5|Mercedes
+6|Porsche
+7|Toyota
+
+sqlite> insert into car_models(year, model, name, boosted, make_id) values (1967, '275 GTB4', 'Nadine', 'false', 4);                                        
+sqlite> insert into car_models(year, model, name, boosted, make_id) values (1998, 'Supra Turbo', 'Lynn', 'true', 7);
+sqlite> insert into car_models(year, model, name, boosted, make_id) values (1998, 'SL600', 'Ellen', 'true', 5);                                             
+sqlite> insert into car_models(year, model, name, boosted, make_id) values (1958, 'Brougham', 'Patricia', 'false', 2);
+sqlite> insert into car_models(year, model, name, boosted, make_id) values (1959, 'El Dorado', 'Madeline', 'false', 2);
+sqlite> insert into car_models(year, model, name, boosted, make_id) values (1953, 'Corvette', 'Pamela', 'true', 3);
+sqlite> insert into car_models(year, model, name, boosted, make_id) values (1999, 'DB7', 'Mary', 'false', 1);
+sqlite> insert into car_models(year, model, name, boosted, make_id) values (1997, '911 Twin Turbo', 'Tanya', 'true', 6);
+sqlite> insert into car_models(year, model, name, boosted, make_id) values (1987, 'Testarossa', 'Rose', 'true', 4);
+sqlite> insert into car_models(year, model, name, boosted, make_id) values (2000, 'Eldo STS', 'Daniella', 'false', 2);
+sqlite> insert into car_models(year, model, name, boosted, make_id) values (1999, 'S600', 'Samantha', 'true', 5);
+sqlite> insert into car_models(year, model, name, boosted, make_id) values (1961, 'Speedster', 'Natalie', 'true', 6);
+sqlite> insert into car_models(year, model, name, boosted, make_id) values (1969, 'Camaro Z28', 'Erin', 'true', 3);
+sqlite> insert into car_models(year, model, name, boosted, make_id) values (1957, 'Gullwing', 'Dorothy', 'false', 5);
+sqlite> insert into car_models(year, model, name, boosted, make_id) values (1988, '959', 'Virginia', 'false', 6);
+sqlite> insert into car_models(year, model, name, boosted, make_id) values (1999, 'CL500', 'Donna', 'true', 5);
+
+sqlite> select * from car_models;
+1|1967|275 GTB4|Nadine|false|4
+2|1998|Supra Turbo|Lynn|true|7
+3|1998|SL600|Ellen|true|5
+4|1958|Brougham|Patricia|false|2
+5|1959|El Dorado|Madeline|false|2
+6|1953|Corvette|Pamela|true|3
+7|1999|DB7|Mary|false|1
+8|1997|911 Twin Turbo|Tanya|true|6
+9|1987|Testarossa|Rose|true|4
+10|2000|Eldo STS|Daniella|false|2
+11|1999|S600|Samantha|true|5
+12|1961|Speedster|Natalie|true|6
+13|1969|Camaro Z28|Erin|true|3
+14|1957|Gullwing|Dorothy|false|5
+15|1988|959|Virginia|false|6
+16|1999|CL500|Donna|true|5
+
+
+
+
+
+Release 2
+1. Display the information in one table.
+sqlite> select * from car_models;
+1|1967|275 GTB4|Nadine|false|4
+2|1998|Supra Turbo|Lynn|true|7
+3|1998|SL600|Ellen|true|5
+4|1958|Brougham|Patricia|false|2
+5|1959|El Dorado|Madeline|false|2
+6|1953|Corvette|Pamela|true|3
+7|1999|DB7|Mary|false|1
+8|1997|911 Twin Turbo|Tanya|true|6
+9|1987|Testarossa|Rose|true|4
+10|2000|Eldo STS|Daniella|false|2
+11|1999|S600|Samantha|true|5
+12|1961|Speedster|Natalie|true|6
+13|1969|Camaro Z28|Erin|true|3
+14|1957|Gullwing|Dorothy|false|5
+15|1988|959|Virginia|false|6
+16|1999|CL500|Donna|true|5
+
+2. Update an item that meets some condition.
+sqlite> update car_models set boosted='true' where name='Daniella';
+
+3. Display the information in both tables using one query.
+sqlite> select * from car_models join car_makes on car_models.make_id=car_makes.id;
+1|1967|275 GTB4|Nadine|false|4|4|Ferrari
+2|1998|Supra Turbo|Lynn|true|7|7|Toyota
+3|1998|SL600|Ellen|true|5|5|Mercedes
+4|1958|Brougham|Patricia|false|2|2|Cadillac
+5|1959|El Dorado|Madeline|false|2|2|Cadillac
+6|1953|Corvette|Pamela|true|3|3|Chevrolet
+7|1999|DB7|Mary|false|1|1|Aston Martin
+8|1997|911 Twin Turbo|Tanya|true|6|6|Porsche
+9|1987|Testarossa|Rose|true|4|4|Ferrari
+10|2000|Eldo STS|Daniella|true|2|2|Cadillac
+11|1999|S600|Samantha|true|5|5|Mercedes
+12|1961|Speedster|Natalie|true|6|6|Porsche
+13|1969|Camaro Z28|Erin|true|3|3|Chevrolet
+14|1957|Gullwing|Dorothy|false|5|5|Mercedes
+15|1988|959|Virginia|false|6|6|Porsche
+16|1999|CL500|Donna|true|5|5|Mercedes
+
+4. Display a narrower selection of columns from both tables using one query.
+sqlite> select year, model from car_models;
+1967|275 GTB4
+1998|Supra Turbo
+1998|SL600
+1958|Brougham
+1959|El Dorado
+1953|Corvette
+1999|DB7
+1997|911 Twin Turbo
+1987|Testarossa
+2000|Eldo STS
+1999|S600
+1961|Speedster
+1969|Camaro Z28
+1957|Gullwing
+1988|959
+1999|CL500
+
+5.Delete an item that meets some condition.
+sqlite> delete from car_models where model='Testarossa';
+
+
+
+
+Release 3
+Researching Different Variations of "Join"
+
+sqlite> select
+   ...> car_models.year,
+   ...> car_makes.make,
+   ...> car_models.model
+   ...> from car_models
+   ...> join car_makes on car_models.make_id=car_makes.id;
+1967|Ferrari|275 GTB4
+1998|Toyota|Supra Turbo
+1998|Mercedes|SL600
+1958|Cadillac|Brougham
+1959|Cadillac|El Dorado
+1953|Chevrolet|Corvette
+1999|Aston Martin|DB7
+1997|Porsche|911 Twin Turbo
+2000|Cadillac|Eldo STS
+1999|Mercedes|S600
+1961|Porsche|Speedster
+1969|Chevrolet|Camaro Z28
+1957|Mercedes|Gullwing
+1988|Porsche|959
+1999|Mercedes|CL500

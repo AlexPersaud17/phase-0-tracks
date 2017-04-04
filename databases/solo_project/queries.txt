@@ -118,23 +118,22 @@ sqlite> select * from car_models join car_makes on car_models.make_id=car_makes.
 16|1999|CL500|Donna|true|5|5|Mercedes
 
 4. Display a narrower selection of columns from both tables using one query.
-sqlite> select year, model from car_models;
-1967|275 GTB4
-1998|Supra Turbo
-1998|SL600
-1958|Brougham
-1959|El Dorado
-1953|Corvette
-1999|DB7
-1997|911 Twin Turbo
-1987|Testarossa
-2000|Eldo STS
-1999|S600
-1961|Speedster
-1969|Camaro Z28
-1957|Gullwing
-1988|959
-1999|CL500
+sqlite> select car_makes.make, car_models.model from car_models join car_makes on car_models.make_id=car_makes.id;
+Ferrari|275 GTB4
+Toyota|Supra Turbo
+Mercedes|SL600
+Cadillac|Brougham
+Cadillac|El Dorado
+Chevrolet|Corvette
+Aston Martin|DB7
+Porsche|911 Twin Turbo
+Cadillac|Eldo STS
+Mercedes|S600
+Porsche|Speedster
+Chevrolet|Camaro Z28
+Mercedes|Gullwing
+Porsche|959
+Mercedes|CL500
 
 5.Delete an item that meets some condition.
 sqlite> delete from car_models where model='Testarossa';
@@ -145,24 +144,24 @@ sqlite> delete from car_models where model='Testarossa';
 Release 3
 Researching Different Variations of "Join"
 
-sqlite> select
-   ...> car_models.year,
+sqlite> select car_models.year,
    ...> car_makes.make,
-   ...> car_models.model
+   ...> car_models.model,
+   ...> car_models.name
    ...> from car_models
    ...> join car_makes on car_models.make_id=car_makes.id;
-1967|Ferrari|275 GTB4
-1998|Toyota|Supra Turbo
-1998|Mercedes|SL600
-1958|Cadillac|Brougham
-1959|Cadillac|El Dorado
-1953|Chevrolet|Corvette
-1999|Aston Martin|DB7
-1997|Porsche|911 Twin Turbo
-2000|Cadillac|Eldo STS
-1999|Mercedes|S600
-1961|Porsche|Speedster
-1969|Chevrolet|Camaro Z28
-1957|Mercedes|Gullwing
-1988|Porsche|959
-1999|Mercedes|CL500
+1967|Ferrari|275 GTB4|Nadine
+1998|Toyota|Supra Turbo|Lynn
+1998|Mercedes|SL600|Ellen
+1958|Cadillac|Brougham|Patricia
+1959|Cadillac|El Dorado|Madeline
+1953|Chevrolet|Corvette|Pamela
+1999|Aston Martin|DB7|Mary
+1997|Porsche|911 Twin Turbo|Tanya
+2000|Cadillac|Eldo STS|Daniella
+1999|Mercedes|S600|Samantha
+1961|Porsche|Speedster|Natalie
+1969|Chevrolet|Camaro Z28|Erin
+1957|Mercedes|Gullwing|Dorothy
+1988|Porsche|959|Virginia
+1999|Mercedes|CL500|Donna

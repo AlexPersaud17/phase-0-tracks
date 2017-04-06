@@ -1,5 +1,6 @@
 # WELCOME TO MYFACE! (Get it? MySpace + Facebook???)
 # Created by Alex Persaud
+# For optimal viewing, please expand your terminal to the width of your screen.
 
 require 'sqlite3'
 require 'faker'
@@ -113,11 +114,18 @@ who_likes_what = db.execute(who_likes_what_sql)
 list_friends = db.execute(list_friends_sql)
 news_feed = db.execute(news_feed_sql)
 
+# Create original status and check in for user
 my_status = Faker::Friends.quote
 my_check_in = Faker::Friends.location
 
+# Create random timestamps
+def time_rand(from)
+  Time.at(from + rand(Time.now.to_f - from.to_f)).strftime "%m/%d/%y %I:%M%p"
+end
+
 # USER INTERFACE
 puts "Welcome to MyFace!"
+puts "For optimal viewing, please expand your terminal to the width of your screen."
 puts "Please enter your username to log in."
 username = gets.chomp.capitalize
 puts "\n"
@@ -155,7 +163,8 @@ loop do
 		puts "\n"
 		puts "What your friends are up to!"
 		news_feed.each do |name, status, place|
-			puts "--#{name} is at #{place} and says '#{status}'"
+			rand_time = time_rand(Time.local(2017, 3, 1))
+			puts "--#{name} is at #{place} and says '#{status}'' (#{rand_time})"
 		end
 	when "my friends"
 		puts "\n"

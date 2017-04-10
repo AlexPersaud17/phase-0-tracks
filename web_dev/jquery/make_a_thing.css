@@ -1,4 +1,7 @@
-img{
-  width: 500px;
-  height: auto;
+img {
+	width: 200px;
+  	height: auto;
+    position: relative;
+    left: 0;
+    top: 0;
 }

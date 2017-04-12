@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Template Practice</title>
+</head>
+<body>
+	<h1>Happy Birthday!</h1>
+	<ul>
+    <% @students.each do |student| %>
+    	<li><%= student['name'] %>, <%= student['age'] %></li>
+    <% end %>
+  	</ul>
+
+</body>
+</html>

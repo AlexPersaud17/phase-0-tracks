@@ -1,5 +1,6 @@
 # require gems
-require 'sinatra'
+require "sinatra"
+require "sinatra/reloader" if development?
 require 'sqlite3'
 
 set :public_folder, File.dirname(__FILE__) + '/static'
@@ -24,4 +25,20 @@ post '/students' do
   redirect '/'
 end
 
+get '/happy_birthday' do
+	@students_new_age =  db.execute("SELECT * FROM students")
+	age_incr=params[:incr].to_i
+	student_id=1
+	@students_new_age.each do |student|
+		new_age = student['age']+=age_incr
+		db.execute("UPDATE students SET age=? WHERE id=?", new_age, student_id)
+		student_id+=1
+	end
+	redirect '/'
+end
+
+get '/new_list' do
+	@students = db.execute("SELECT * FROM students")
+	erb :index
+end
 # add static resources

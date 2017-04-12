@@ -25,9 +25,9 @@ post '/students' do
   redirect '/'
 end
 
-get '/happy_birthday' do
+post '/happy_birthday' do
 	@students_new_age =  db.execute("SELECT * FROM students")
-	age_incr=params[:incr].to_i
+	age_incr=params['incr'].to_i
 	student_id=1
 	@students_new_age.each do |student|
 		new_age = student['age']+=age_incr
@@ -37,8 +37,7 @@ get '/happy_birthday' do
 	redirect '/'
 end
 
-get '/new_list' do
-	@students = db.execute("SELECT * FROM students")
+get '/happy_birthday/incr' do
 	erb :index
 end
 # add static resources
